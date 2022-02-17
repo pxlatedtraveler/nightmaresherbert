@@ -1,0 +1,64 @@
+{"frames": {
+
+"Wormfall_run_003.png":
+{
+	"frame": {"x":1,"y":1,"w":832,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":352,"w":832,"h":248},
+	"sourceSize": {"w":1024,"h":1024}
+},
+"Wormfall_turn_006.png":
+{
+	"frame": {"x":1,"y":1183,"w":505,"h":367},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":149,"y":233,"w":505,"h":367},
+	"sourceSize": {"w":1024,"h":1024}
+},
+"Wormfall_turn_012.png":
+{
+	"frame": {"x":594,"y":852,"w":516,"h":392},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":350,"y":231,"w":516,"h":392},
+	"sourceSize": {"w":1024,"h":1024}
+},
+"Wormfall_turn_013.png":
+{
+	"frame": {"x":1,"y":852,"w":591,"h":329},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":334,"y":263,"w":591,"h":329},
+	"sourceSize": {"w":1024,"h":1024}
+},
+"Wormfall_turn_014.png":
+{
+	"frame": {"x":1,"y":524,"w":760,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":194,"y":268,"w":760,"h":326},
+	"sourceSize": {"w":1024,"h":1024}
+},
+"Wormfall_turn_016.png":
+{
+	"frame": {"x":1,"y":251,"w":821,"h":271},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":137,"y":338,"w":821,"h":271},
+	"sourceSize": {"w":1024,"h":1024}
+}},
+"animations": {
+	"Wormfall_turn": ["Wormfall_turn_006.png","Wormfall_turn_012.png","Wormfall_turn_013.png","Wormfall_turn_014.png","Wormfall_turn_016.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "wormfall-1.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1",
+	"related_multi_packs": [ "wormfall-0.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:875717dd0398f15ec04758f6ff3fea07:186169bf3bc0fa7e028fa24e32946d24:218d71d30bf80d7884d955982c203f4c$"
+}
+}

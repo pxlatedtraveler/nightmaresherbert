@@ -1,0 +1,130 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #5525BE;
+    color: #1E0458;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    text-align: center;
+    margin: 20px;
+}
+
+#parent{
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+#pixiPlayground{
+    width: 100%;
+    height: 300px;
+}
+
+.stack{
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.inside{
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    color: #5525BE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#guilty{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#social{
+    color: #8430FF;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#foot{
+    font-size: 15px;
+    text-align: center;
+    margin: 20px;
+}
+
+#foot:hover{
+    color: #C0D3A3;
+}
+
+a:link{
+    color: #8430FF;
+    text-decoration: none;
+  }
+  
+a:visited{
+    color: #8430FF;
+    text-decoration: none;
+  }
+  
+a:hover{
+    color: #00e1ff;
+    text-decoration: none;
+  }
+  
+a:active{
+    color: #ff30c1;
+    text-decoration: none;
+  }
+
+#links
+{
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+svg
+{
+    background:none;
+    background-color: none;
+    display: inline-block;
+    height: 50px;
+    margin: 0 10px;
+    fill: #8430FF;
+    -webkit-transition: height 1s; /* Safari prior 6.1 */
+    transition: height 1s;
+}
+
+svg:hover
+{
+    height: 55px;
+    -webkit-animation-name: svgGlow; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: svgGlow;
+    animation-duration: 2s;
+}
+
+  /* Safari 4.0 - 8.0 */
+@-webkit-keyframes svgGlow
+{
+    from {fill: #8430FF;}
+    to {fill: #C0D3A3;}
+}
+  
+/* Standard syntax */
+@keyframes svgGlow
+{
+    from {fill: #8430FF;}
+    to {fill: #ff30c1;}
+}

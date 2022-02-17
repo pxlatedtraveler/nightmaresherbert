@@ -1,0 +1,192 @@
+{"frames": {
+
+"Wormfall_run_000.png":
+{
+	"frame": {"x":427,"y":1,"w":423,"h":147},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":72,"w":423,"h":147},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_run_001.png":
+{
+	"frame": {"x":1,"y":1,"w":424,"h":158},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":72,"w":424,"h":158},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_run_002.png":
+{
+	"frame": {"x":1,"y":161,"w":421,"h":133},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":83,"w":421,"h":133},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_run_003.png":
+{
+	"frame": {"x":420,"y":599,"w":416,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":89,"w":416,"h":126},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_run_004.png":
+{
+	"frame": {"x":422,"y":454,"w":418,"h":143},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":73,"w":418,"h":143},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_005.png":
+{
+	"frame": {"x":1,"y":296,"w":420,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":72,"w":420,"h":144},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_006.png":
+{
+	"frame": {"x":1,"y":442,"w":419,"h":142},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":68,"w":419,"h":142},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_007.png":
+{
+	"frame": {"x":423,"y":306,"w":419,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":66,"w":419,"h":146},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_008.png":
+{
+	"frame": {"x":1,"y":586,"w":417,"h":153},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":59,"w":417,"h":153},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_009.png":
+{
+	"frame": {"x":852,"y":1,"w":374,"h":171},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":43,"w":374,"h":171},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_010.png":
+{
+	"frame": {"x":385,"y":866,"w":344,"h":189},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":17,"y":35,"w":344,"h":189},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_011.png":
+{
+	"frame": {"x":838,"y":716,"w":254,"h":185},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":17,"y":30,"w":254,"h":185},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_012.png":
+{
+	"frame": {"x":844,"y":377,"w":337,"h":178},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":31,"w":337,"h":178},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_013.png":
+{
+	"frame": {"x":731,"y":972,"w":289,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":69,"y":0,"w":289,"h":199},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_014.png":
+{
+	"frame": {"x":1,"y":908,"w":313,"h":182},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":46,"y":16,"w":313,"h":182},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_015.png":
+{
+	"frame": {"x":615,"y":1173,"w":236,"h":185},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":140,"y":13,"w":236,"h":185},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_016.png":
+{
+	"frame": {"x":263,"y":1225,"w":224,"h":208},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":163,"y":19,"w":224,"h":208},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_017.png":
+{
+	"frame": {"x":1,"y":1092,"w":260,"h":197},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":157,"y":29,"w":260,"h":197},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_018.png":
+{
+	"frame": {"x":316,"y":1057,"w":297,"h":166},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":149,"y":45,"w":297,"h":166},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_019.png":
+{
+	"frame": {"x":1,"y":741,"w":382,"h":165},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":79,"y":47,"w":382,"h":165},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_020.png":
+{
+	"frame": {"x":427,"y":150,"w":422,"h":154},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":40,"y":61,"w":422,"h":154},
+	"sourceSize": {"w":462,"h":300}
+},
+"Wormfall_turn_021.png":
+{
+	"frame": {"x":420,"y":727,"w":411,"h":137},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":51,"y":82,"w":411,"h":137},
+	"sourceSize": {"w":462,"h":300}
+}},
+"animations": {
+	"Wormfall_run": ["Wormfall_run_000.png","Wormfall_run_001.png","Wormfall_run_002.png","Wormfall_run_003.png","Wormfall_run_004.png"],
+	"Wormfall_turn": ["Wormfall_turn_005.png","Wormfall_turn_006.png","Wormfall_turn_007.png","Wormfall_turn_008.png","Wormfall_turn_009.png","Wormfall_turn_010.png","Wormfall_turn_011.png","Wormfall_turn_012.png","Wormfall_turn_013.png","Wormfall_turn_014.png","Wormfall_turn_015.png","Wormfall_turn_016.png","Wormfall_turn_017.png","Wormfall_turn_018.png","Wormfall_turn_019.png","Wormfall_turn_020.png","Wormfall_turn_021.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "wormfall_run-turn.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5538361268b171ce230f0256905e3da5:d2037650f4c831e8f6550dbe8bed16fe:d7dbd4c6e4de4383215dea473e9ec0bd$"
+}
+}
