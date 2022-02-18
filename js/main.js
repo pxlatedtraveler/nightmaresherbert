@@ -215,8 +215,8 @@ function fromRightToLeft()
     worm_turn_flip.gotoAndPlay(0);
     document.dispatchEvent(functionComplete);
     worm_turn_flip.onComplete = () => {
+        worm.removeChildren();
         worm.addChild(worm_run);
-        worm.removeChild(worm_turn_flip);
         worm_run.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
@@ -235,8 +235,8 @@ function fromLeftToRight()
     worm_turn.gotoAndPlay(0);
     document.dispatchEvent(functionComplete);
     worm_turn.onComplete = () => {
+        worm.removeChildren();
         worm.addChild(worm_run_flip);
-        worm.removeChild(worm_turn);
         worm_run_flip.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
@@ -308,7 +308,6 @@ function tapTank(e){
     isTransitionPlaying = true;
 
     reactionToPlay(point)
-
 }
 
 function reactionToPlay(point)
@@ -404,9 +403,6 @@ function detectDirection(point)
             moveToPos(point, 0);
         }
     }
-
-    // MUST CHECK IF THIS DELAY CALL ALREADY EXISTS - cancel if it does and restart new one. SAME WITH TWEENMAX.TO in moveToPost()!!!
-
 }
 
 function flipAxis(currentValue)
