@@ -15,7 +15,7 @@ let originalWormWidth, originalWormHeight;
 let wormBoundaries;
 
 // Animations and Worm Container
-let worm, worm_run, worm_turn;
+let worm, worm_run, worm_turn, worm_run_flip, worm_turn_flip, flipContainer;
 let wormAnims = [];
 
 // Collider Elements
@@ -61,7 +61,15 @@ function setup(resource)
 
     worm_run = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
     worm_turn = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
-    wormAnims = [worm_run, worm_turn];
+
+    flipContainer = new PIXI.Container();
+    worm_run_flip = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
+    worm_run_flip.anchor.set(1,0);
+    worm_run_flip.scale.x = -1;
+    worm_turn_flip = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
+    worm_turn_flip.scale.x = -1;
+    worm_turn_flip.anchor.set(1,0);
+    wormAnims = [worm_run, worm_turn, worm_run_flip, worm_turn_flip];
 
     // Setup the position of the worm
     for (let i = 0; i < wormAnims.length; i++)
@@ -72,6 +80,8 @@ function setup(resource)
     // Animation settings
     worm_turn.loop = false;
     worm_run.loop = true;
+    worm_turn_flip.loop = false;
+    worm_run_flip.loop = true;
     worm_run.play();
 
     // Add the worm to the scene we are building
@@ -195,24 +205,21 @@ function colliderCheck()
 
 function fromRightToLeft()
 {
+    //if ()
     console.error('TURNING LEFT');
     direction = 'left';
     TweenMax.to(worm, 1, {x: worm.x + colliderThickness});
-    worm.addChild(worm_turn);
-    worm_turn.x = worm_turn.width;
-    worm.removeChild(worm_run);
+    worm.removeChildren();
+    worm.addChild(worm_turn_flip);
     isTurning = true;
-    worm_turn.gotoAndPlay(0);
-    worm_run.scale.x = flipAxis(worm_run.scale.x);//1
+    worm_turn_flip.gotoAndPlay(0);
     document.dispatchEvent(functionComplete);
-    worm_turn.onComplete = () => {
+    worm_turn_flip.onComplete = () => {
         worm.addChild(worm_run);
-        worm_run.x = 0;
-        worm.removeChild(worm_turn);
+        worm.removeChild(worm_turn_flip);
         worm_run.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
-        worm_turn.scale.x = flipAxis(worm_turn.scale.x);//-1
         document.dispatchEvent(turningComplete);
     }
 }
@@ -222,21 +229,17 @@ function fromLeftToRight()
     console.error('TURNING RIGHT');
     direction = 'right';
     TweenMax.to(worm, 1, {x: worm.x - colliderThickness});
+    worm.removeChildren();
     worm.addChild(worm_turn);
-    worm_turn.x = 0;
-    worm.removeChild(worm_run);
     isTurning = true;
     worm_turn.gotoAndPlay(0);
-    worm_run.scale.x = flipAxis(worm_run.scale.x);//-1
     document.dispatchEvent(functionComplete);
     worm_turn.onComplete = () => {
-        worm.addChild(worm_run);
-        worm_run.x = worm_run.width;
+        worm.addChild(worm_run_flip);
         worm.removeChild(worm_turn);
-        worm_run.gotoAndPlay(0);
+        worm_run_flip.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
-        worm_turn.scale.x = flipAxis(worm_turn.scale.x);//1
         document.dispatchEvent(turningComplete);
     }
 }
@@ -367,7 +370,6 @@ function moveToPos(point, delay)
 
 function detectDirection(point)
 {
-    console.log('detectDirection START');
     const turnDelay = 1;
 
     if (point.x < worm.x) //If click happens on left
@@ -378,15 +380,12 @@ function detectDirection(point)
             document.addEventListener("functioncomplete", function handler (){
                 this.removeEventListener("functioncomplete", handler);
                 moveToPos(point, turnDelay);
-                console.log('detectDirection END 1-a');
             });
             fromRightToLeft();
-            console.log('detectDirection END 1-b');
         }
         else
         {
             moveToPos(point, 0);
-            console.log('detectDirection END 2');
         }
     }
     else if (point.x > worm.x) //If click happens on right
@@ -397,15 +396,12 @@ function detectDirection(point)
             document.addEventListener("functioncomplete", function handler (){
                 this.removeEventListener("functioncomplete", handler);
                 moveToPos(point, turnDelay);
-                console.log('detectDirection END 3-a');
             });
             fromLeftToRight();
-            console.log('detectDirection END 3-b');
         }
         else
         {
             moveToPos(point, 0);
-            console.log('detectDirection END 4');
         }
     }
 
