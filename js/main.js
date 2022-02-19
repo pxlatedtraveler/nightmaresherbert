@@ -15,7 +15,7 @@ let originalWormWidth, originalWormHeight;
 let wormBoundaries;
 
 // Animations and Worm Container
-let worm, worm_run, worm_turn, worm_run_flip, worm_turn_flip, flipContainer;
+let worm, worm_run_left, worm_turn_left, worm_run_right, worm_turn_right, flipContainer;
 let wormAnims = [];
 
 // Collider Elements
@@ -27,6 +27,7 @@ let direction = 'left';
 let isTransitionPlaying = false;
 let isTurning = false;
 let startMove = false;
+//let userTap = false;
 
 let speed = {currentSpeed: 1, maxSpeed: 8};
 
@@ -35,7 +36,7 @@ const colliderThickness = 5;
 const boundaryTolerance = 3;
 
 const functionComplete = new Event("functioncomplete");
-const turningComplete = new Event("turnend");
+const turningComplete = new Event("turningcomplete");
 
 initialize();
 
@@ -59,17 +60,17 @@ function setup(resource)
     worm = new PIXI.Container();
     worm.interactive = true;
 
-    worm_run = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
-    worm_turn = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
+    worm_run_left = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
+    worm_turn_left = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
 
     flipContainer = new PIXI.Container();
-    worm_run_flip = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
-    worm_run_flip.anchor.set(1,0);
-    worm_run_flip.scale.x = -1;
-    worm_turn_flip = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
-    worm_turn_flip.scale.x = -1;
-    worm_turn_flip.anchor.set(1,0);
-    wormAnims = [worm_run, worm_turn, worm_run_flip, worm_turn_flip];
+    worm_run_right = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_run']);
+    worm_run_right.anchor.set(1,0);
+    worm_run_right.scale.x = -1;
+    worm_turn_right = new PIXI.AnimatedSprite(resource.worm.spritesheet.animations['Wormfall_turn']);
+    worm_turn_right.scale.x = -1;
+    worm_turn_right.anchor.set(1,0);
+    wormAnims = [worm_run_left, worm_turn_left, worm_run_right, worm_turn_right];
 
     // Setup the position of the worm
     for (let i = 0; i < wormAnims.length; i++)
@@ -78,14 +79,14 @@ function setup(resource)
     }
 
     // Animation settings
-    worm_turn.loop = false;
-    worm_run.loop = true;
-    worm_turn_flip.loop = false;
-    worm_run_flip.loop = true;
-    worm_run.play();
+    worm_turn_left.loop = false;
+    worm_run_left.loop = true;
+    worm_turn_right.loop = false;
+    worm_run_right.loop = true;
+    worm_run_left.play();
 
     // Add the worm to the scene we are building
-    worm.addChild(worm_run);
+    worm.addChild(worm_run_left);
     stage.addChild(worm);
 
     colliding_top = false;
@@ -145,6 +146,8 @@ function directionCheck()
 {
     if (!isTurning && !isTransitionPlaying)
     {
+        resetYToMiddle();
+
         switch(direction)
         {
             case 'left':
@@ -170,6 +173,13 @@ function directionCheck()
     }
 }
 
+function resetYToMiddle()
+{
+    let yPos = getCurrentPixiBounds().height / 2 - worm.height / 2;
+    TweenMax.to(worm, 2, {y: yPos, ease: "power2.out", onComplete: function(){
+    }});
+}
+
 function colliderCheck()
 {
     if (!colliding_right && direction === 'right')
@@ -177,9 +187,8 @@ function colliderCheck()
         if (collision.hit(worm, collider_right))
         {
             colliding_right = true;
-            //isTurning = true;
             
-            fromRightToLeft();
+            fromRightToLeft(false);
         }
     }
     if (!collision.hit(worm, collider_right))
@@ -192,9 +201,8 @@ function colliderCheck()
         if (collision.hit(worm, collider_left))
         {
             colliding_left = true;
-            //isTurning = true;
 
-            fromLeftToRight();
+            fromLeftToRight(false);
         }
     }
     if (!collision.hit(worm, collider_left))
@@ -203,44 +211,43 @@ function colliderCheck()
     }
 }
 
-function fromRightToLeft()
+function fromRightToLeft(userTap)
 {
-    //if ()
-    console.error('TURNING LEFT');
+    isTurning = true;
     direction = 'left';
     TweenMax.to(worm, 1, {x: worm.x + colliderThickness});
     worm.removeChildren();
-    worm.addChild(worm_turn_flip);
-    isTurning = true;
-    worm_turn_flip.gotoAndPlay(0);
+    worm.addChild(worm_turn_right);
+    worm_turn_right.gotoAndPlay(0);
     document.dispatchEvent(functionComplete);
-    worm_turn_flip.onComplete = () => {
+    worm_turn_right.onComplete = () => {
         worm.removeChildren();
-        worm.addChild(worm_run);
-        worm_run.gotoAndPlay(0);
+        worm.addChild(worm_run_left);
+        worm_run_left.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
         document.dispatchEvent(turningComplete);
+        console.log('turningComplete');
     }
 }
 
-function fromLeftToRight()
+function fromLeftToRight(userTap)
 {
-    console.error('TURNING RIGHT');
+    isTurning = true;
     direction = 'right';
     TweenMax.to(worm, 1, {x: worm.x - colliderThickness});
     worm.removeChildren();
-    worm.addChild(worm_turn);
-    isTurning = true;
-    worm_turn.gotoAndPlay(0);
+    worm.addChild(worm_turn_left);
+    worm_turn_left.gotoAndPlay(0);
     document.dispatchEvent(functionComplete);
-    worm_turn.onComplete = () => {
+    worm_turn_left.onComplete = () => {
         worm.removeChildren();
-        worm.addChild(worm_run_flip);
-        worm_run_flip.gotoAndPlay(0);
+        worm.addChild(worm_run_right);
+        worm_run_right.gotoAndPlay(0);
         speed.currentSpeed = 1;
         isTurning = false;
         document.dispatchEvent(turningComplete);
+        console.log('turningComplete');
     }
 }
 
@@ -299,71 +306,62 @@ function addEvents()
 {
     window.addEventListener('resize', resize);
     interactiveStage.on('click', tapTank);
+    console.log('TAP EVENT ON');
 }
 
 function tapTank(e){
     console.warn('TAP');
+    if (isTurning)
+    {
+        interactiveStage.off('click', tapTank);
+        console.log('TAP EVENT OFF')
+    }
     let point = new PIXI.Point(e.data.global.x, e.data.global.y);
-
     isTransitionPlaying = true;
-
     reactionToPlay(point)
 }
 
 function reactionToPlay(point)
 {
-    if (isTurning)
+    if (worm.children[0].containsPoint(point))
     {
-        document.addEventListener('turnend', function handler(){
-            document.removeEventListener('turnend', handler);
-            if (worm.children[0].containsPoint(point))
-            {
-                console.log(point, 'Worm Scared!'); //scareWorm();
-            }
-            else
-            {
-                TweenMax.killTweensOf(worm);
-                detectDirection(point)
-            }
-        })
+        scareWorm(point);
     }
     else
     {
-        TweenMax.killTweensOf(worm);
-        if (worm.children[0].containsPoint(point))
-        {
-            console.log(point, 'Worm Scared!'); //scareWorm();
-        }
-        else
-        {
-            detectDirection(point)
-        }
+        detectDirection(point)
     }
-
-
-
 }
 
-function moveToPos(point, delay)
+function scareWorm(point)
 {
-    console.log('moveToPos START');
+    console.log(point, 'Worm Scared!');
+    if (isTurning)
+    {
+        document.addEventListener('turningcomplete', function handler (){
+            document.removeEventListener('turningcomplete', handler);
+            interactiveStage.on('click', tapTank);
+            console.log('TAP EVENT ON');
+        })
+    }
+
+    isTransitionPlaying = false;
+}
+
+function moveToPos(point, delay, tapDirection)
+{
     let yDiff = worm.height / 2;
     let xDiff = 0;
-
     if (direction === 'right')
     {
         xDiff = worm.width;
-        console.error(xDiff);
     }
     //need to calculate duration based on distance. Estimate how long a single step should take. Maybe start with assuming it's 50px?
     let duration = 2;
+    TweenMax.killTweensOf(worm);
     TweenMax.to(worm, duration, {x: point.x - xDiff, y: point.y - yDiff, delay: delay, ease: "power2.out", onComplete: function (){
         speed.currentSpeed = 1;
         isTransitionPlaying = false;
-
-        let yPos = getCurrentPixiBounds().height / 2 - worm.height / 2;
-        TweenMax.to(worm, 2, {y: yPos, ease: "power2.out"});
-        console.log('moveToPos END');
     }});
 }
 
@@ -373,34 +371,48 @@ function detectDirection(point)
 
     if (point.x < worm.x) //If click happens on left
     {
-        console.log('Click happened Left, FACING:', direction);
         if (direction === 'right')
         {
-            document.addEventListener("functioncomplete", function handler (){
-                this.removeEventListener("functioncomplete", handler);
-                moveToPos(point, turnDelay);
-            });
-            fromRightToLeft();
+            interactiveStage.off('click', tapTank);
+            console.log('TAP EVENT OFF')
+            fromRightToLeft(true);
+            moveToPos(point, turnDelay, 'left');
         }
         else
         {
-            moveToPos(point, 0);
+            moveToPos(point, 0, 'left');
+        }
+
+        if (isTurning)
+        {
+            document.addEventListener('turningcomplete', function handler (){
+                document.removeEventListener('turningcomplete', handler);
+                interactiveStage.on('click', tapTank);
+                console.log('TAP EVENT ON');
+            })
         }
     }
     else if (point.x > worm.x) //If click happens on right
     {
-        console.log('Click happened Right, FACING:', direction);
         if (direction === 'left')
         {
-            document.addEventListener("functioncomplete", function handler (){
-                this.removeEventListener("functioncomplete", handler);
-                moveToPos(point, turnDelay);
-            });
-            fromLeftToRight();
+            interactiveStage.off('click', tapTank);
+            console.log('TAP EVENT OFF')
+            fromLeftToRight(true);
+            moveToPos(point, turnDelay, 'right');
         }
         else
         {
-            moveToPos(point, 0);
+            moveToPos(point, 0, 'left');
+        }
+
+        if (isTurning)
+        {
+            document.addEventListener('turningcomplete', function handler (){
+                document.removeEventListener('turningcomplete', handler);
+                interactiveStage.on('click', tapTank);
+                console.log('TAP EVENT ON');
+            })
         }
     }
 }
