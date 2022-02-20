@@ -306,6 +306,7 @@ function addEvents()
 {
     window.addEventListener('resize', resize);
     interactiveStage.on('click', tapTank);
+    interactiveStage.on('tap', tapTank);
     console.log('TAP EVENT ON');
 }
 
@@ -314,6 +315,7 @@ function tapTank(e){
     if (isTurning)
     {
         interactiveStage.off('click', tapTank);
+        interactiveStage.off('tap', tapTank);
         console.log('TAP EVENT OFF')
     }
     let point = new PIXI.Point(e.data.global.x, e.data.global.y);
@@ -341,6 +343,7 @@ function scareWorm(point)
         document.addEventListener('turningcomplete', function handler (){
             document.removeEventListener('turningcomplete', handler);
             interactiveStage.on('click', tapTank);
+            interactiveStage.on('tap', tapTank);
             console.log('TAP EVENT ON');
         })
     }
@@ -374,6 +377,7 @@ function detectDirection(point)
         if (direction === 'right')
         {
             interactiveStage.off('click', tapTank);
+            interactiveStage.off('tap', tapTank);
             console.log('TAP EVENT OFF')
             fromRightToLeft(true);
             moveToPos(point, turnDelay, 'left');
@@ -388,6 +392,7 @@ function detectDirection(point)
             document.addEventListener('turningcomplete', function handler (){
                 document.removeEventListener('turningcomplete', handler);
                 interactiveStage.on('click', tapTank);
+                interactiveStage.on('tap', tapTank);
                 console.log('TAP EVENT ON');
             })
         }
@@ -397,6 +402,7 @@ function detectDirection(point)
         if (direction === 'left')
         {
             interactiveStage.off('click', tapTank);
+            interactiveStage.off('tap', tapTank);
             console.log('TAP EVENT OFF')
             fromLeftToRight(true);
             moveToPos(point, turnDelay, 'right');
@@ -411,6 +417,7 @@ function detectDirection(point)
             document.addEventListener('turningcomplete', function handler (){
                 document.removeEventListener('turningcomplete', handler);
                 interactiveStage.on('click', tapTank);
+                interactiveStage.on('tap', tapTank);
                 console.log('TAP EVENT ON');
             })
         }
