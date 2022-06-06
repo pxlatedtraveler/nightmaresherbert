@@ -16,6 +16,11 @@ header{
     padding: 0;
 }
 
+.section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .unselectable{
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -28,17 +33,17 @@ header{
     background: #8430FF;
     color: #1E0458;
     border-radius: 25px;
-    padding: 20px;
-    min-width: 300px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-width 0.5s ease-out;
+    transition: max-height 0.5s ease-out;
 }
 
 .panel a:link { color:#00e1ff; }
 .panel a:visited { color:#00e1ff; }
 
 .content{
-    max-height: 0;
-    overflow: hidden;
-/*     transition: max-height 0.2s ease-out; */
+    padding: 20px;
 }
 
 .collapsible{
@@ -53,7 +58,6 @@ header{
 
 #parent{
     background-color: black;
-    margin-bottom: 40px;
 }
 
 #info{
@@ -90,7 +94,7 @@ header{
     background-color: #1E0458;
     color: #8430FF;
     text-align: center;
-    margin-top: 20px;
+
 }
 
 #social{

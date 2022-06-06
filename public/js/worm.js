@@ -227,7 +227,7 @@ function fromRightToLeft(userTap)
         speed.currentSpeed = 1;
         isTurning = false;
         document.dispatchEvent(turningComplete);
-        console.log('turningComplete');
+        //console.log('turningComplete');
     }
 }
 
@@ -247,7 +247,7 @@ function fromLeftToRight(userTap)
         speed.currentSpeed = 1;
         isTurning = false;
         document.dispatchEvent(turningComplete);
-        console.log('turningComplete');
+        //console.log('turningComplete');
     }
 }
 
