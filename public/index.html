@@ -13,12 +13,14 @@
 	gtag('config', 'G-4YV2G06W81');
 	</script>
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/PixiPlugin.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.11/pixi.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
 	<script src="https://cdn.rawgit.com/kittykatattack/bump/2fe38b76/bin/bump.js"></script>
@@ -40,23 +42,30 @@
 
 </head>
 <body>
-
-<header id="intro" class="unselectable"><br>
+<header id="intro" class="unselectable">
 	<h1>R B Y  | P X L</h1>
 </header>
 
 <div class="stack unselectable" id="parent">
 	<div class="inside"><h1>The Very Hungry Worm</h1></div>
 	<div id="pixiPlayground" class="stack"></div>
+
+	<div id="info">
+		<button type="button" class="collapsible"><i class="material-icons">info</i></button>
+		<div class="panel content">
+			This is an interactive <a href="https://www.bungie.net/" target="_blank">Destiny</a> inspired worm I created using <a href="https://pixijs.com/" target="_blank">PIXI.JS</a>, a rendering library.
+			Art and animations were also created by me, and done on iPad with <a href="https://apps.apple.com/us/app/adobe-fresco-sketch-draw/id1458660369" target="_blank">Adobe Fresco</a>.<br>
+			The colorful borders are colliders made using a third party library for PIXI called <a href="https://github.com/kittykatattack/bump" target="_blank">Bump</a>, created by kittykatattack.
+		</div>
+	</div>
+
 </div>
 
-<script type="module" src="js/main.js"></script>
+<script type="module" src="js/worm.js"></script>
+<script src="js/main.js"></script>
 
 <section id="guilty" class="unselectable">
-	This is supposed to be my portolio site. ONE DAY!&trade;<br><br>
-	In the meantime, enjoy this interactive <a href="https://www.bungie.net/" target="_blank">Destiny</a> inspired worm I created using <a href="https://pixijs.com/" target="_blank">PIXI.JS</a>.
-	Art and animations were done on iPad with <a href="https://apps.apple.com/us/app/adobe-fresco-sketch-draw/id1458660369" target="_blank">Adobe Fresco</a>.<br>
-	The colorful borders are colliders made using a third party library for PIXI called <a href="https://github.com/kittykatattack/bump" target="_blank">Bump</a>, created by kittykatattack.<br>
+	This is supposed to be my portolio site. ONE DAY!&trade;
 </section>
 
 <footer>

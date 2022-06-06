@@ -12,21 +12,54 @@ body{
 
 header{
     text-align: center;
-    margin: 20px;
+    margin: 20px 0 20px 0;
+    padding: 0;
 }
 
 .unselectable{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
     -o-user-select: none;
     user-select: none;
 }
 
+.panel{
+    background: #8430FF;
+    color: #1E0458;
+    border-radius: 25px;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.panel a:link { color:#00e1ff; }
+.panel a:visited { color:#00e1ff; }
+
+.content{
+    max-height: 0;
+    overflow: hidden;
+/*     transition: max-height 0.2s ease-out; */
+}
+
+.collapsible{
+    background-color: transparent;
+    display: inline-block;
+    color: #8430FF;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: none;
+}
+
 #parent{
     background-color: black;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+#info{
+    color: #8430FF;
+    position:absolute;
+    padding: 10px;
 }
 
 #pixiPlayground{
@@ -54,6 +87,8 @@ header{
 }
 
 #guilty{
+    background-color: #1E0458;
+    color: #8430FF;
     text-align: center;
     margin-top: 20px;
 }
@@ -96,15 +131,13 @@ a:active{
     text-decoration: none;
   }
 
-#links
-{
+#links{
     text-align: center;
     width: 100%;
     position: relative;
 }
 
-svg
-{
+svg{
     background:none;
     background-color: none;
     display: inline-block;
@@ -115,8 +148,7 @@ svg
     transition: height 1s;
 }
 
-svg:hover
-{
+svg:hover{
     height: 55px;
     -webkit-animation-name: svgGlow; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
@@ -125,15 +157,13 @@ svg:hover
 }
 
   /* Safari 4.0 - 8.0 */
-@-webkit-keyframes svgGlow
-{
+@-webkit-keyframes svgGlow{
     from {fill: #8430FF;}
     to {fill: #C0D3A3;}
 }
   
 /* Standard syntax */
-@keyframes svgGlow
-{
+@keyframes svgGlow{
     from {fill: #8430FF;}
     to {fill: #ff30c1;}
 }
