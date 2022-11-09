@@ -64,30 +64,40 @@
 </div>
 
 <script type="module" src="js/worm.js"></script>
-<script src="js/main.js"></script>
 </section>
 
-<section id="guilty" class="unselectable">
-	<div class="section">
-		This is supposed to be my portolio site. ONE DAY!&trade;
+<section class="unselectable">
+	<div id="about" class="stack segment">
+		<div id="guilty" class="botMargin">This is supposed to be my portolio site. ONE DAY!&trade;</div>
+
+		<button type="button" class="collapsible horiCenter">ABOUT</button>
+		<div id="me" class="panel hug"><div class="content">Test</div></div>
+
+		<button type="button" class="collapsible horiCenter">WORKS</button>
+		<div id="work" class="panel hug"><div class="content">OK</div></div>
+
+		<button type="button" class="collapsible horiCenter">RESUME</button>
+		<div id="resume" class="panel hug"><div class="content">OK</div></div>
 	</div>
 </section>
 
+<script src="js/main.js"></script>
+
 <footer class="unselectable">
-	<div id = "social" class="section" >
+	<div id = "social" class="stack segment" >
 		<p id = "foot">
 			<a href="https://pixelatedtraveler.com" target="_blank">P X L A T E D T R A V E L E R</a>
 		</p>
 		
 		<div id = "links">
 			<a href="https://twitter.com/pxlatedtraveler" target="_blank">
-				<svg id="Twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 203.18">
+				<svg id="twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 203.18">
 					<path class="cls-1" d="M153.62,301.59c94.35,0,145.94-78.16,145.94-145.94q0-3.33-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.42,102.42,0,0,1-29.46,8.07,51.52,51.52,0,0,0,22.56-28.37,102.91,102.91,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.77A145.62,145.62,0,0,1,92.4,107.81a51.31,51.31,0,0,0,15.88,68.47,50.87,50.87,0,0,1-23.23-6.42c0,.22,0,.43,0,.66a51.31,51.31,0,0,0,41.15,50.28,51.42,51.42,0,0,1-23.17.88,51.34,51.34,0,0,0,47.92,35.62,102.91,102.91,0,0,1-63.7,22A105.19,105.19,0,0,1,75,278.55a145.17,145.17,0,0,0,78.62,23" transform="translate(-75 -98.41)"/>
 				  </svg>
 			</a>
 
 			<a href="https://github.com/pxlatedtraveler" target="_blank">
-				<svg id="Github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xml:space="preserve">
+				<svg id="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xml:space="preserve">
 					<path class="st0" d="M250.3,5.9C112.5,5.9,0.7,117.7,0.7,255.6c0,110.3,71.5,203.9,170.7,236.9c12.5,2.3,17.1-5.4,17.1-12c0-6-0.2-25.6-0.3-46.5c-69.5,15.1-84.1-29.5-84.1-29.5C92.7,375.7,76.3,368,76.3,368c-22.7-15.5,1.7-15.2,1.7-15.2
 					c25.1,1.8,38.3,25.7,38.3,25.7c22.3,38.2,58.4,27.1,72.7,20.8c2.2-16.1,8.7-27.2,15.9-33.4C149.3,359.6,91,338.2,91,242.5c0-27.3,9.8-49.5,25.7-67c-2.6-6.3-11.1-31.7,2.4-66.1c0,0,21-6.7,68.7,25.6c19.9-5.5,41.3-8.3,62.5-8.4
 					c21.2,0.1,42.6,2.9,62.5,8.4c47.7-32.3,68.6-25.6,68.6-25.6c13.6,34.4,5,59.8,2.5,66.1c16,17.5,25.7,39.8,25.7,67c0,95.9-58.4,117-114,123.2c9,7.7,16.9,22.9,16.9,46.2c0,33.4-0.3,60.3-0.3,68.5c0,6.6,4.5,14.4,17.1,12c99.1-33,170.6-126.6,170.6-236.9C500,117.7,388.2,5.9,250.3,5.9z"/>
@@ -110,9 +120,15 @@
 			</a>
 	
 			<a href="https://www.facebook.com/pxlatedtraveler" target="_blank">
-				<svg id="Facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1017.78">
+				<svg id="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1017.78">
 					<path class="cls-1" d="M512,0C229.23,0,0,229.23,0,512c0,255.55,187.23,467.37,432,505.78V660H302V512H432V399.2C432,270.88,508.44,200,625.39,200c56,0,114.61,10,114.61,10V336H675.44c-63.6,0-83.44,39.47-83.44,80v96H734L711.3,660H592v357.78C836.77,979.37,1024,767.55,1024,512,1024,229.23,794.77,0,512,0Z"/>
 				</svg>  
+			</a>
+
+			<a rel="me" href="https://mastodon.art/@pxl" target="_blank">
+				<svg id="mastodon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2326.22 2493.86">
+					<path class="cls-1" d="M2326.13,818.77c0-540.98-354.45-699.56-354.45-699.56C1792.96,37.13,1486.08,2.61,1167.27,0h-7.84C840.61,2.61,533.92,37.13,355.19,119.21,355.19,119.21,.74,277.78,.74,818.78c0,123.88-2.42,272,1.5,429.08,12.87,529.06,96.99,1050.48,586.15,1179.95,225.53,59.7,419.18,72.19,575.14,63.62,282.8-15.68,441.57-100.93,441.57-100.93l-9.32-205.2s-202.11,63.73-429.09,55.96c-224.88-7.72-462.28-24.25-498.65-300.36-3.36-24.25-5.04-50.18-5.04-77.41,0,0,220.76,53.96,500.52,66.77,171.07,7.85,331.5-10.02,494.44-29.46,312.47-37.31,584.55-229.83,618.73-405.75h0c53.88-277.13,49.43-676.28,49.43-676.28Zm-418.09,697.03h-259.52V879.99c0-134.03-56.39-202.05-169.19-202.05-124.71,0-187.21,80.69-187.21,240.26v348.02h-258v-348.02c0-159.57-62.52-240.26-187.23-240.26-112.8,0-169.19,68.02-169.19,202.05v635.8H418.18V860.74c0-133.88,34.08-240.26,102.56-318.97,70.61-78.7,163.07-119.06,277.86-119.06,132.8,0,233.37,51.04,299.87,153.14l64.63,108.37,64.65-108.37c66.48-102.09,167.06-153.14,299.87-153.14,114.77,0,207.24,40.34,277.86,119.06,68.46,78.7,102.54,185.1,102.54,318.97v655.05Z"/>
+				</svg>
 			</a>
 		</div>
 	</div>

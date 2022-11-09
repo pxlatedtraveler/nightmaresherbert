@@ -16,9 +16,21 @@ header{
     padding: 0;
 }
 
-.section{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.botMargin{
+    margin-bottom: 10px;
+}
+
+.horiCenter{
+    width: 100%;
+}
+
+.hug {
+    display: inline-block;
+}
+
+.segment{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .unselectable{
@@ -40,6 +52,7 @@ header{
 }
 
 .panel a:link { color:#00e1ff; }
+
 .panel a:visited { color:#00e1ff; }
 
 .content{
@@ -48,7 +61,7 @@ header{
 
 .collapsible{
     background-color: transparent;
-    display: inline-block;
+    display: block;
     color: #8430FF;
     cursor: pointer;
     outline: none;
@@ -62,7 +75,7 @@ header{
 
 #info{
     color: #8430FF;
-    position:absolute;
+    position: absolute;
     padding: 10px;
 }
 
@@ -91,24 +104,26 @@ header{
 }
 
 #guilty{
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+#about{
     background-color: #1E0458;
     color: #8430FF;
     text-align: center;
-
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 #social{
     color: #8430FF;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
 }
 
 #foot{
     font-size: 15px;
     text-align: center;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 #foot:hover{
