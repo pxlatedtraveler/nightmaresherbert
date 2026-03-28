@@ -17,6 +17,10 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
+document.addEventListener("THING FOR WINDOW RESIZE", function() {
+    //Adjust max height to grow with text...OR turn on overflow? which I think auto-happens if I just turn it on anyway...figure out later.
+});
+
 const intro = document.getElementById("guilty");
 
 gsap.delayedCall(4.5, () => {

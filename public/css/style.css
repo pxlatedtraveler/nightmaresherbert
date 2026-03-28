@@ -116,6 +116,10 @@ header{
     border-top-right-radius: 25px;
 }
 
+.longtext{
+    text-align: left;
+}
+
 #social{
     color: #8430FF;
 }
