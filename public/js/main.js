@@ -107,6 +107,8 @@ slider.addEventListener("mouseup", (e) => {
 
             lightboxTarget.innerHTML = `<iframe src="${videoSrc}" allow="autoplay" allowfullscreen></iframe>`;
 
+            document.body.style.overflow = 'hidden';
+
             lightbox.showModal();
         }
     }
@@ -116,6 +118,8 @@ const closeVideoLightbox = () => {
     if (lightbox) {
         lightbox.close();
         lightboxTarget.innerHTML = '';
+
+        document.body.style.overflow = '';
     }
 };
 
