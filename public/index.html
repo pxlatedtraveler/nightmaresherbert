@@ -24,6 +24,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.11/pixi.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
 	<script src="https://cdn.rawgit.com/kittykatattack/bump/2fe38b76/bin/bump.js"></script>
+	<script src="https://player.vimeo.com/api/player.js"></script>
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:creator" content="@pxlatedtraveler">
@@ -52,7 +53,7 @@
 	<div id="pixiPlayground" class="stack"></div>
 
 	<div id="info">
-		<button type="button" class="collapsible"><i class="material-icons">info</i></button>
+		<button type="button" class="btn-collapsible"><i class="material-icons">info</i></button>
 		<div class="panel">
 			<div class="content">
 				This is an interactive <a href="https://www.bungie.net/" target="_blank">Destiny</a> inspired worm I created using <a href="https://pixijs.com/" target="_blank">PIXI.JS</a>, a rendering library.<br>
@@ -70,49 +71,86 @@
 	<div id="about" class="stack segment">
 		<div id="guilty" class="botMargin">This is supposed to be my portolio site. ONE DAY!&trade;</div>
 
-		<button type="button" class="collapsible horiCenter">ABOUT</button>
-		<div id="me" class="panel hug"><div class="content">
+		<button type="button" class="btn-collapsible horiCenter">ABOUT</button>
+		<div id="me" class="panel"><div class="content">
 			<strong>Artist, Animator, Illustrator, Web Developer</strong><br>
 			I make mobile casino games.<br><br>
 			<p class="longtext">
-			Born and raised in NYC, Queens. Been living the entirely of adulthood in Vegas.<br>
-			I love illustrating, both traditionally and digitally. The latter is just the most convenient, so it's what I showcase.<br>
-			It's hard to say if I love it more than coding. I enjoy both very much.<br>
+			My whole childhood was in NYC, Queens. My wole adulthood has been here in Vegas.<br>
+			I started drawing in early childhood, inspired by the works of games and animations. When I was 13, I got my hands on my first game engine; a simple one called RPG Maker 2000, 
+			where I explored ways to create custom content, fiddling with Ruby code. I didn't know what a tech artist was yet, but I knew I loved this kind of work. I just wanted my art to be 
+			able to do cooler things than what the standard tools allowed.<br>
 			<br>
-			I was an artist first, but I discovered an interest in more techical things when a friend in 8th grade gave me a copy of RPG Maker 2000.<br>
-			Ironically, my first coding language was Ruby (as used in RPGM2K), but I didn't really get into coding until Flash completely died, back in June 2019.<br>
-			Our boss-lady at the time told my whole team to stop development of ALL flash games. All we made at the time were Flash games, and so there was nothing left to do.<br>
-			At the time, I was an animator, but also handling the whole process of putting together our games, compiling and testing from templates.<br>
-			With nothing to do at the office, and a very strong thirst to learn, I taught myself JavaScript, which was our future.<br>
-			A few weeks later, and I was prototyping alongside our game developer, re-creating templates and games.<br>
-			Now I'm in the deep-end, not only handling tech art tasks, such as putting assets into the game engine, but also creating custom scripts, and designing shaders using GLSL.<br>
+			I attended The Art Instutute here in Vegas and graduated with a Bachelor of Science in Game Art & Design. My career began soon after, at a small start-up, where I was imediately exposed 
+			to some of the best mentors in the casino game dev industry.<br>
+			I moved onto a Media Tech role with Bally Tech, an animation role at another start up for mobile slots, a more tech-art animation role with a mom-n-pop loyalty kiosk developer that was bought 
+			by Everi. Within Everi, I was poached internally for a senior Tech Art role in their at-the-time newest Digital (mobile) team called "Innovations" where I got to do R&D and make my favorite 
+			games. This is where I grew the most.
 			<br>
-			It's a huge passion, and also one of my personal hobbies. Creating this portfolio website from scratch, animating and coding things like the Worm tank above for fun.<br>
-			I've also dabbled in back-end as well. I run my own personal AWS EC2 instance, where I develop discord bots for fun, and run MySQL databases to work alongside them.<br>
-			Each project brings with it new knowledge that I'm able to apply elsewhere (including work). Troubleshooting server issues, learning about networks in general, async, etc.<br>
-			Binary stuff, bitwise, masking with em. It's been a fun and hair-pulling journey, but I love this stuff.<br>
-			<br>
-			Health matters too. I love the outdoors, hiking, traveling, family. Food is great. I love food...and keeping healthy enough so I can live longer and eat more food.<br>
-			Games matter too. Shadow of the Colossus, Legend of Dragoon, and Destiny 2 are very big favs. I re-visit old games, like Star Craft (original + broodwars) for fun.<br>
-			If I had more time, I'd do tabletop again. I'm a I-forget-what-level Halfling Warlock, and my aim is terrible. Catan is fun too.<br>
-			</p>
+			I'm happy as long as I'm creating.
 
 		</div></div>
 
-		<button type="button" class="collapsible horiCenter">WORKS</button>
-		<div id="work" class="panel hug"><div class="content">OK</div></div>
+		<button type="button" class="btn-collapsible horiCenter">WORKS</button>
+		<div id="work" class="panel"><div class="content">
+			<h2>WORKS</h2>
+			<h3><button class="btn-menu">Games</button> | <button class="btn-menu">Art</button></h3>
+				<div class="drag-grid">
+					<div class="video-wrapper">
+						<div class="video-shield"></div>
+						<h3>Stellar Bounties - Tech Art</h3>
+						<iframe src="https://player.vimeo.com/video/1236912281?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Stellar Bounties - Base gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236912288?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Stellar Bounties - Boss bonus"></iframe>
+					</div>
+					<div class="video-wrapper">
+						<div class="video-shield"></div>
+						<h3>UFO - Dev, Tech Art</h3>
+						<iframe src="https://player.vimeo.com/video/1236912307?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="UFO - Progressive Bonus gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236912307?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="UFO - Progressive Bonus gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236912309?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="UFO - Rampage bonus gameplay"></iframe>
+					</div>
+					<div class="video-wrapper">
+						<div class="video-shield"></div>
+						<h3>Fiesta Pop - Art, Dev, Tech Art</h3>
+						<iframe src="https://player.vimeo.com/video/1236912101?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Fiesta Pop - Base gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236912105?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Fiesta Pop - Zap All"></iframe>
+					</div>
+					<div class="video-wrapper">
+						<div class="video-shield"></div>
+						<h3>Hi-Lo Fired Up - Tech Art</h3>
+						<iframe src="https://player.vimeo.com/video/1236913374?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="HiLo - Base gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236913303?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="HiLo - Wheel bonus"></iframe>
+					</div>
+					<div class="video-wrapper">
+						<div class="video-shield"></div>
+						<h3>Studio Game Jam - Tech Art, Dev</h3>
+						<iframe src="https://player.vimeo.com/video/1236912080?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Studio Game Jam Dungeons &amp; Dancers - Base gameplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/1236912085?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="gallery-iframe" title="Studio Game Jam Dungeons &amp; Dancers - Boss bonus"></iframe>
+					</div>
+				</div>
 
-		<button type="button" class="collapsible horiCenter">RESUME</button>
-		<div id="resume" class="panel hug"><div class="content">OK</div></div>
+		</div></div>
+
+		<button type="button" class="btn-collapsible horiCenter">RESUME</button>
+		<div id="resume" class="panel"><div class="content">
+			RESUME HERE
+		</div></div>
 	</div>
 </section>
+
+<dialog id="video-lightbox">
+	<button id="close-lightbox-btn" aria-label="Close Gallery">&times;</button>
+	<div class="lightbox-content-box">
+		<div id="lightbox-video-target"></div>
+	</div>
+</dialog>
 
 <script src="js/main.js"></script>
 
 <footer class="unselectable">
 	<div id = "social" class="stack segment" >
 		<p id = "foot">
-			<a href="https://pixelatedtraveler.com" target="_blank">P X L A T E D T R A V E L E R</a>
+			<a href="https://kinderguardians.io" target="_blank">P X L A T E D T R A V E L E R</a>
 		</p>
 		
 		<div id = "links">
@@ -151,17 +189,6 @@
 				</svg>
 			</a>
 	
-			<a href="https://www.facebook.com/pxlatedtraveler" target="_blank">
-				<svg id="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1017.78">
-					<path class="cls-1" d="M512,0C229.23,0,0,229.23,0,512c0,255.55,187.23,467.37,432,505.78V660H302V512H432V399.2C432,270.88,508.44,200,625.39,200c56,0,114.61,10,114.61,10V336H675.44c-63.6,0-83.44,39.47-83.44,80v96H734L711.3,660H592v357.78C836.77,979.37,1024,767.55,1024,512,1024,229.23,794.77,0,512,0Z"/>
-				</svg>  
-			</a>
-
-			<a rel="me" href="https://mastodon.art/@pxl" target="_blank">
-				<svg id="mastodon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2326.22 2493.86">
-					<path class="cls-1" d="M2326.13,818.77c0-540.98-354.45-699.56-354.45-699.56C1792.96,37.13,1486.08,2.61,1167.27,0h-7.84C840.61,2.61,533.92,37.13,355.19,119.21,355.19,119.21,.74,277.78,.74,818.78c0,123.88-2.42,272,1.5,429.08,12.87,529.06,96.99,1050.48,586.15,1179.95,225.53,59.7,419.18,72.19,575.14,63.62,282.8-15.68,441.57-100.93,441.57-100.93l-9.32-205.2s-202.11,63.73-429.09,55.96c-224.88-7.72-462.28-24.25-498.65-300.36-3.36-24.25-5.04-50.18-5.04-77.41,0,0,220.76,53.96,500.52,66.77,171.07,7.85,331.5-10.02,494.44-29.46,312.47-37.31,584.55-229.83,618.73-405.75h0c53.88-277.13,49.43-676.28,49.43-676.28Zm-418.09,697.03h-259.52V879.99c0-134.03-56.39-202.05-169.19-202.05-124.71,0-187.21,80.69-187.21,240.26v348.02h-258v-348.02c0-159.57-62.52-240.26-187.23-240.26-112.8,0-169.19,68.02-169.19,202.05v635.8H418.18V860.74c0-133.88,34.08-240.26,102.56-318.97,70.61-78.7,163.07-119.06,277.86-119.06,132.8,0,233.37,51.04,299.87,153.14l64.63,108.37,64.65-108.37c66.48-102.09,167.06-153.14,299.87-153.14,114.77,0,207.24,40.34,277.86,119.06,68.46,78.7,102.54,185.1,102.54,318.97v655.05Z"/>
-				</svg>
-			</a>
 		</div>
 	</div>
 </footer>
