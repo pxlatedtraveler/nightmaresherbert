@@ -167,9 +167,19 @@ button {
 
 .lightbox-content-box {
     position: relative;
+    z-index: 2;
     aspect-ratio: var(--lightbox-ratio, 16/9);
+    /*Desktop*/
     width: min(90vw, calc(90vh * (var(--lightbox-ratio, 16/9))));
     height: min(90vh, calc(90vw / (var(--lighbox-ratio, 16/9))));
+}
+
+/*For Mobile*/
+@media (max-width: 768px) {
+    .lightbox-content-box {
+        width: 90vw;
+        height: auto;
+    }
 }
 
 #lightbox-video-target {
