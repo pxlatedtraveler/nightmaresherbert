@@ -51,6 +51,7 @@ const slider = document.querySelector('.drag-grid');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxTarget = document.getElementById('lightbox-video-target');
 const closeBtn = document.getElementById('close-lightbox-btn');
+const backdropCloseBtn = document.getElementById('lightbox-backdrop-close');
 
 let isDown = false;
 let startX, scrollLeft, hasMoved = false;
@@ -118,18 +119,12 @@ const closeVideoLightbox = () => {
     if (lightbox) {
         lightbox.close();
         lightboxTarget.innerHTML = '';
-
         document.body.style.overflow = '';
     }
 };
 
 closeBtn.addEventListener('click', closeVideoLightbox);
-
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        closeVideoLightbox();
-    }
-});
+backdropCloseBtn.addEventListener('click', closeVideoLightbox);
 
 slider.addEventListener('mouseleave', () => {
     isDown = false;
