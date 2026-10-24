@@ -54,29 +54,38 @@ const closeBtn = document.getElementById('close-lightbox-btn');
 const backdropCloseBtn = document.getElementById('lightbox-backdrop-close');
 
 let isDown = false;
-let startX, scrollLeft, hasMoved = false;
+let startX, startY;
+let scrollLeft, scrollTopParent;
+let hasMoved = false;
 
 
 slider.addEventListener("mousedown", (e) => {
     if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.menu')) return;
-
     isDown = true;
     hasMoved =false;
+
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
+
+    startY = e.clientY;
+    scrollTopParent = window.scrollY || document.documentElement.scrollTop;
 });
 
 slider.addEventListener("mousemove", (e) => {
     if (!isDown) return;
 
     const x = e.pageX - slider.offsetLeft;
-    const walk = x - startX;
+    const walkX = x - startX;
 
-    if (Math.abs(walk) > 5) {
+    const y = e.clientY;
+    const walkY = y - startY;
+
+    if (Math.abs(walkX) > 5 || Math.abs(walkY) > 5) {
         hasMoved = true;
         slider.classList.add('is-dragging');
         e.preventDefault();
-        slider.scrollLeft = scrollLeft - walk;
+        slider.scrollLeft = scrollLeft - walkX;
+        window.scrollTo(0, scrollTopParent - walkY);
     }
 });
 
@@ -102,22 +111,27 @@ slider.addEventListener("mouseup", (e) => {
 
             let videoSrc = originalIframe.getAttribute('src');
 
+            if (!videoSrc.includes('api=1')) {
+                videoSrc += (videoSrc.includes('?') ? '&' : '?') + 'api=1';
+            }
             if (!videoSrc.includes('autoplay=1')) {
-                videoSrc += (videoSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+                videoSrc += '&autoplay=1';
             }
 
-            lightboxTarget.innerHTML = `<iframe src="${videoSrc}" allow="autoplay" allowfullscreen></iframe>`;
+            lightboxTarget.innerHTML = `<iframe src="${videoSrc}" 
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin">
+                                        </iframe>`;
 
             document.body.style.overflow = 'hidden';
 
-            lightbox.showModal();
+            lightbox.classList.add('is-active');
         }
     }
 });
 
 const closeVideoLightbox = () => {
     if (lightbox) {
-        lightbox.close();
+        lightbox.classList.remove('is-active');
         lightboxTarget.innerHTML = '';
         document.body.style.overflow = '';
     }
