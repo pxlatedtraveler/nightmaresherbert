@@ -59,6 +59,10 @@ button {
     padding: 20px;
 }
 
+.menu-header {
+    padding-bottom: 20px;
+}
+
 .btn-collapsible {
     background-color: transparent;
     color: #8430FF;
@@ -81,7 +85,6 @@ button {
     grid-auto-flow: column;
     grid-auto-columns: auto;
     gap: 20px;
-    padding: 20px;
     width: 100%;
 
     overflow-x: auto;
@@ -275,6 +278,70 @@ button {
 
 .longtext {
     text-align: left;
+}
+
+#resume {
+    height: fit-content;
+    overflow: hidden;
+}
+
+.resume-embed-container {
+    width: 100%;
+    height: fit-content;
+    min-height: 450px;
+    background-color: #5525BE;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+@media (min-width: 768px) {
+    .resume-embed-container {
+        height: fit-content;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+
+.resume-embed-container object {
+    width: 100%;
+    height: 100%;
+}
+
+.resume-grid {
+    background-color: rgb(168 112 29);
+    text-align: left;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: minmax(120px, auto);
+    row-gap: 6px;
+}
+
+.resume-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+    padding: 20px;
+    background-color:#03fcadb0;
+}
+
+.resume-skills {
+    padding: 20px;
+    background-color: cadetblue;
+}
+
+.resume-history {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.resume-divider {
+    background-color: rgb(168, 112, 29);
+    border: none;
+    border-radius: 50%;
+    height: 2px;
+    margin: 5px 0;
 }
 
 #social {
