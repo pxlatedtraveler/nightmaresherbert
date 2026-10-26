@@ -81,12 +81,7 @@ button {
 }
 
 .drag-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: auto;
-    gap: 20px;
     width: 100%;
-
     overflow-x: auto;
     overflow-y: hidden;
     user-select: none;
@@ -94,6 +89,17 @@ button {
 
     scrollbar-width: none;
     -ms-overflow-style: none; /*non-standard but for IE/Edge*/
+
+    max-height: 0;
+    transition: max-width 0.5s ease-out;
+    transition: max-height 0.5s ease-out;
+}
+.video-games-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    gap: 20px;
+    width: 100%;
 }
 .drag-grid::-webkit-scrollbar {
     display: none;
@@ -236,7 +242,7 @@ button {
     height: 300px;
 }
 
-.btn-menu {
+.btn-sub-collapsible {
     background-color: #03fcad;
     min-width: 100px;
     padding: 4px;

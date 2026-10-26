@@ -7,7 +7,7 @@ for (let i = 0; i < coll.length; i++) {
         this.classList.toggle("active");
 
         let panel = this.nextElementSibling;
-        //let content = panel.firstElementChild;
+
         if (panel.style.maxHeight){
             console.log('OFF');
             panel.style.maxHeight = null;
@@ -44,6 +44,42 @@ gsap.delayedCall(5, function(){
     //gsap.to("#guilty.botMar")
 });
 
+
+
+// Handles WORKS submenu collapsing
+const collSubs = document.getElementsByClassName("btn-sub-collapsible");
+const dragPanels = document.getElementsByClassName("drag-grid");
+console.log('drags', dragPanels);
+console.log('subs', collSubs)
+
+for (let i = 0; i < collSubs.length; i++) {
+
+    collSubs[i].addEventListener('click', function() {
+
+        collSubs[i].classList.toggle('active');
+
+        let panel = dragPanels[i]; //can't be next sibling; buttons in the way.
+
+        if (panel.style.maxHeight){
+            console.log('OFF');
+            panel.style.maxHeight = null;
+        } else {
+            console.log('ON');
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            if (panel.scrollHeight !== 0) {
+                document.getElementById("work").style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+
+        for (let j = 0; j < coll.length; j++) {
+            if (j !== i) {
+                collSubs[j].classList.remove("active");
+                dragPanels[j].style.maxHeight = null;
+            }
+        }
+
+    });
+}
 
 
 // Handles menu mouse dragging
