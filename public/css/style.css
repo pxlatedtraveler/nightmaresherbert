@@ -285,13 +285,21 @@ button {
     overflow: hidden;
 }
 
+.resume-divider {
+    background-color: rgb(168, 112, 29);
+    border: none;
+    border-radius: 1px;
+    height: 2px;
+    margin: 5px 0;
+}
+
 .resume-embed-container {
     width: 100%;
     height: fit-content;
     min-height: 450px;
     background-color: #5525BE;
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 2px;
+    padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -299,28 +307,54 @@ button {
         height: fit-content;
         max-width: 900px;
         margin: 0 auto;
+        border-radius: 8px;
+        padding: 6px;
     }
-}
-
-
-.resume-embed-container object {
-    width: 100%;
-    height: 100%;
 }
 
 .resume-grid {
     background-color: rgb(168 112 29);
     text-align: left;
+    font-size: 9pt;
+    line-height: 1.5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-auto-rows: minmax(120px, auto);
     row-gap: 6px;
 }
+.resume-grid h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.resume-grid h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.resume-grid ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+.resume-grid ul.li {
+    display: list-item;
+    list-style-position: inside;
+}
+.resume-grid p, ul {
+    padding-bottom: 20px;
+}
+.resume-grid span {
+    display: block;
+}
+.resume-grid span:not(:last-child) {
+    padding-bottom: 5px;
+}
 
 .resume-header {
     grid-column-start: 1;
     grid-column-end: 3;
+    font-size: 12pt;
     
     padding: 20px;
     background-color:#03fcadb0;
@@ -335,13 +369,13 @@ button {
     padding: 20px;
     background-color: #fff;
 }
-
-.resume-divider {
-    background-color: rgb(168, 112, 29);
-    border: none;
-    border-radius: 50%;
-    height: 2px;
-    margin: 5px 0;
+.resume-history .resume-divider {
+    background-color:rgb(214, 214, 214);
+    border-radius: 0;
+    height: 1px;
+}
+.resume-history span:not(:last-child) {
+    padding-bottom: 20px;
 }
 
 #social {
