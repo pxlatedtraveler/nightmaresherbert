@@ -71,7 +71,7 @@ for (let i = 0; i < collSubs.length; i++) {
             }
         }
 
-        for (let j = 0; j < coll.length; j++) {
+        for (let j = 0; j < collSubs.length; j++) {
             if (j !== i) {
                 collSubs[j].classList.remove("active");
                 dragPanels[j].style.maxHeight = null;
@@ -83,7 +83,6 @@ for (let i = 0; i < collSubs.length; i++) {
 
 
 // Handles menu mouse dragging
-const slider = document.querySelector('.drag-grid');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxTarget = document.getElementById('lightbox-video-target');
 const closeBtn = document.getElementById('close-lightbox-btn');
@@ -94,76 +93,86 @@ let startX, startY;
 let scrollLeft, scrollTopParent;
 let hasMoved = false;
 
-
-slider.addEventListener("mousedown", (e) => {
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.menu')) return;
-    isDown = true;
-    hasMoved =false;
-
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-
-    startY = e.clientY;
-    scrollTopParent = window.scrollY || document.documentElement.scrollTop;
-});
-
-slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-
-    const x = e.pageX - slider.offsetLeft;
-    const walkX = x - startX;
-
-    const y = e.clientY;
-    const walkY = y - startY;
-
-    if (Math.abs(walkX) > 5 || Math.abs(walkY) > 5) {
-        hasMoved = true;
-        slider.classList.add('is-dragging');
-        e.preventDefault();
-        slider.scrollLeft = scrollLeft - walkX;
-        window.scrollTo(0, scrollTopParent - walkY);
-    }
-});
-
-slider.addEventListener("mouseup", (e) => {
-    if (!isDown) return;
-    isDown = false;
-    slider.classList.remove('is-dragging');
-
-    if (!hasMoved && e.target.classList.contains('video-shield')) {
-        const wrapper = e.target.closest('.video-wrapper');
-        const originalIframe = wrapper.querySelector('iframe');
-
-        if (originalIframe && lightbox) {
-            const currentWidth = wrapper.offsetWidth;
-            const currentHeight = wrapper.offsetHeight;
-            const contentBox = document.querySelector('.lightbox-content-box');
-
-            if (currentHeight > currentWidth) {
-                contentBox.style.setProperty('--lightbox-ratio', '9/16');
-            } else {
-                contentBox.style.setProperty('--lightbox-ratio', '16/9');
-            }
-
-            let videoSrc = originalIframe.getAttribute('src');
-
-            if (!videoSrc.includes('api=1')) {
-                videoSrc += (videoSrc.includes('?') ? '&' : '?') + 'api=1';
-            }
-            if (!videoSrc.includes('autoplay=1')) {
-                videoSrc += '&autoplay=1';
-            }
-
-            lightboxTarget.innerHTML = `<iframe src="${videoSrc}" 
-                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin">
-                                        </iframe>`;
-
-            document.body.style.overflow = 'hidden';
-
-            lightbox.classList.add('is-active');
+for (let i = 0; i < dragPanels.length; i++) {
+    dragPanels[i].addEventListener("mousedown", (e) => {
+        //if (!collSubs[i].classList.contains('active')) return;
+        if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.menu')) return;
+        isDown = true;
+        hasMoved =false;
+    
+        startX = e.pageX - dragPanels[i].offsetLeft;
+        scrollLeft = dragPanels[i].scrollLeft;
+    
+        startY = e.clientY;
+        scrollTopParent = window.scrollY || document.documentElement.scrollTop;
+    });
+    
+    dragPanels[i].addEventListener("mousemove", (e) => {
+        //if (!collSubs[i].classList.contains('active')) return;
+        if (!isDown) return;
+    
+        const x = e.pageX - dragPanels[i].offsetLeft;
+        const walkX = x - startX;
+    
+        const y = e.clientY;
+        const walkY = y - startY;
+    
+        if (Math.abs(walkX) > 5 || Math.abs(walkY) > 5) {
+            hasMoved = true;
+            dragPanels[i].classList.add('is-dragging');
+            e.preventDefault();
+            dragPanels[i].scrollLeft = scrollLeft - walkX;
+            window.scrollTo(0, scrollTopParent - walkY);
         }
-    }
-});
+    });
+    
+    dragPanels[i].addEventListener("mouseup", (e) => {
+        //if (!collSubs[i].classList.contains('active')) return;
+        if (!isDown) return;
+        isDown = false;
+        dragPanels[i].classList.remove('is-dragging');
+    
+        if (!hasMoved && e.target.classList.contains('video-shield')) {
+            const wrapper = e.target.closest('.video-wrapper');
+            const originalIframe = wrapper.querySelector('iframe');
+    
+            if (originalIframe && lightbox) {
+                const currentWidth = wrapper.offsetWidth;
+                const currentHeight = wrapper.offsetHeight;
+                const contentBox = document.querySelector('.lightbox-content-box');
+    
+                if (currentHeight > currentWidth) {
+                    contentBox.style.setProperty('--lightbox-ratio', '9/16');
+                } else {
+                    contentBox.style.setProperty('--lightbox-ratio', '16/9');
+                }
+    
+                let videoSrc = originalIframe.getAttribute('src');
+    
+                if (!videoSrc.includes('api=1')) {
+                    videoSrc += (videoSrc.includes('?') ? '&' : '?') + 'api=1';
+                }
+                if (!videoSrc.includes('autoplay=1')) {
+                    videoSrc += '&autoplay=1';
+                }
+    
+                lightboxTarget.innerHTML = `<iframe src="${videoSrc}" 
+                                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin">
+                                            </iframe>`;
+    
+                document.body.style.overflow = 'hidden';
+    
+                lightbox.classList.add('is-active');
+            }
+        }
+    });
+
+    dragPanels[i].addEventListener('mouseleave', () => {
+        //if (!collSubs[i].classList.contains('active')) return;
+        isDown = false;
+        dragPanels[i].classList.remove('is-dragging');
+    });
+}
 
 const closeVideoLightbox = () => {
     if (lightbox) {
@@ -176,7 +185,3 @@ const closeVideoLightbox = () => {
 closeBtn.addEventListener('click', closeVideoLightbox);
 backdropCloseBtn.addEventListener('click', closeVideoLightbox);
 
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('is-dragging');
-});
