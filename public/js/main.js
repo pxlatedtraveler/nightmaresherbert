@@ -49,8 +49,7 @@ gsap.delayedCall(5, function(){
 // Handles WORKS submenu collapsing
 const collSubs = document.getElementsByClassName("btn-sub-collapsible");
 const dragPanels = document.getElementsByClassName("drag-grid");
-console.log('drags', dragPanels);
-console.log('subs', collSubs)
+const dragHeader = document.getElementById("work-header");
 
 for (let i = 0; i < collSubs.length; i++) {
 
@@ -61,14 +60,10 @@ for (let i = 0; i < collSubs.length; i++) {
         let panel = dragPanels[i]; //can't be next sibling; buttons in the way.
 
         if (panel.style.maxHeight){
-            console.log('OFF');
             panel.style.maxHeight = null;
         } else {
-            console.log('ON');
             panel.style.maxHeight = panel.scrollHeight + "px";
-            if (panel.scrollHeight !== 0) {
-                document.getElementById("work").style.maxHeight = panel.scrollHeight + "px";
-            }
+            document.getElementById("work").style.maxHeight = (panel.scrollHeight + dragHeader.scrollHeight + 40) + "px"; // 40 is padding of 20 on content class
         }
 
         for (let j = 0; j < collSubs.length; j++) {
@@ -80,6 +75,12 @@ for (let i = 0; i < collSubs.length; i++) {
 
     });
 }
+
+// Start WORKS menu with Games selected
+collSubs[1].classList.toggle('active');
+dragPanels[1].style.maxHeight = dragPanels[1].scrollHeight + "px";
+
+
 
 
 // Handles menu mouse dragging
@@ -147,16 +148,18 @@ for (let i = 0; i < dragPanels.length; i++) {
                     contentBox.style.setProperty('--lightbox-ratio', '16/9');
                 }
     
-                let videoSrc = originalIframe.getAttribute('src');
+                let srcArt = originalIframe.getAttribute('src');
+
+                console.log('SRC: ', srcArt);
     
-                if (!videoSrc.includes('api=1')) {
-                    videoSrc += (videoSrc.includes('?') ? '&' : '?') + 'api=1';
+                if (!srcArt.includes('api=1')) {
+                    srcArt += (srcArt.includes('?') ? '&' : '?') + 'api=1';
                 }
-                if (!videoSrc.includes('autoplay=1')) {
-                    videoSrc += '&autoplay=1';
+                if (!srcArt.includes('autoplay=1')) {
+                    srcArt += '&autoplay=1';
                 }
     
-                lightboxTarget.innerHTML = `<iframe src="${videoSrc}" 
+                lightboxTarget.innerHTML = `<iframe src="${srcArt}" 
                                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin">
                                             </iframe>`;
     

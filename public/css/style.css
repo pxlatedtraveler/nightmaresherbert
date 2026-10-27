@@ -59,6 +59,7 @@ button {
 
 .content {
     padding: 20px;
+    height: 100%;
 }
 
 .menu-header {
@@ -73,6 +74,10 @@ button {
     outline: none;
     border: none;
     padding: 10px;
+}
+.btn-collapsible:active {
+    color: #03fcad;
+    transform: scale(0.95);
 }
 
 .gallery-iframe {
@@ -100,6 +105,15 @@ button {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: auto;
+    gap: 20px;
+    width: 100%;
+}
+.art-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+/*     grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
 }
