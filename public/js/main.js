@@ -184,19 +184,19 @@ for (let i = 0; i < dragPanels.length; i++) {
             const contentBox = document.querySelector('.lightbox-content-box');
 
             if (originalIframe && lightbox) {
+
                 const currentWidth = wrapper.offsetWidth;
                 const currentHeight = wrapper.offsetHeight;
+
+                if (currentHeight > currentWidth) {
+                    contentBox.style.setProperty('--lightbox-ratio', '9/16');
+                } else {
+                    contentBox.style.setProperty('--lightbox-ratio', '16/9');
+                }
                 
                 let srcArt = originalIframe.getAttribute('src');
 
                 if (srcArt) {
-                    if (currentHeight > currentWidth) {
-                        contentBox.style.setProperty('--lightbox-ratio', '9/16');
-                    } else {
-                        contentBox.style.setProperty('--lightbox-ratio', '16/9');
-                    }
-        
-    
       
                     if (!srcArt.includes('api=1')) {
                         srcArt += (srcArt.includes('?') ? '&' : '?') + 'api=1';
@@ -216,17 +216,16 @@ for (let i = 0; i < dragPanels.length; i++) {
     
             }
             else if (originalImage && lightbox) {
-                const img = document.que
+
+                contentBox.style.setProperty('--lightbox-ratio', '');
+
                 let srcArt = originalImage.getAttribute('href');
-
-                const maxWidth = Math.floor(window.innerWidth * 0.9);
-                const maxHeight = Math.floor(window.innerHeight * 0.90);
-
-                contentBox.style.setProperty('width', maxWidth);
-                contentBox.style.setProperty('height', maxHeight);
+                let imgData = ImageGallery.find(obj => obj.src == srcArt);
                 
-                if (srcArt) {
-                    lightboxTarget.innerHTML = `<img src="${srcArt}" width="500px">`;
+                if (imgData) {
+
+                    lightboxTarget.innerHTML = '';
+                    lightboxTarget.appendChild(imgData.img);
 
                     document.body.style.overflow = 'hidden';
 
